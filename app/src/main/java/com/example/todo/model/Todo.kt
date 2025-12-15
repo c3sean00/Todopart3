@@ -1,8 +1,8 @@
 package com.example.todo.model
 
-
 data class Todo(
     val userId: Int,
-    val id: Int,val title: String,
+    val id: Int,
+    val title: String,
     val completed: Boolean
 )

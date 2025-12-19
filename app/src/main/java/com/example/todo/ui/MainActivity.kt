@@ -3,7 +3,11 @@ package com.example.todo.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.todo.ui.screen.TodoApp // Import added for TodoApp
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import com.example.todo.ui.screen.TodoApp
 import com.example.todo.ui.theme.TodoTheme
 
 class MainActivity : ComponentActivity() {
@@ -11,8 +15,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TodoTheme {
-                // TodoApp now handles the main app structure including the Scaffold
-                TodoApp()
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    TodoApp(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
             }
         }
     }

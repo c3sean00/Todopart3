@@ -22,6 +22,7 @@ import com.example.todo.viewmodel.TodoViewModel
 @Composable
 fun TodoApp(modifier: Modifier = Modifier, todoViewModel: TodoViewModel = viewModel()) {
     Scaffold(
+        modifier = modifier,  // ✅ Modifier Scaffold:lle (ulompi padding)
         topBar = {
             TopAppBar(
                 title = { Text("Todos") }
@@ -29,7 +30,7 @@ fun TodoApp(modifier: Modifier = Modifier, todoViewModel: TodoViewModel = viewMo
         }
     ) { innerPadding ->
         TodoScreen(
-            modifier = modifier.padding(innerPadding),
+            modifier = Modifier.padding(innerPadding),  // ✅ Vain sisempi padding
             uiState = todoViewModel.todoUiState
         )
     }
